@@ -41,4 +41,10 @@ public class EnemyMovement : MonoBehaviour
         moveSpeed = -moveSpeed;
         flipCharacter = !flipCharacter;
     }
+    public void Die(){
+        //Debug.Log("enemy registered a hit");
+        Destroy(this.gameObject);
+    }
+   
+    
 }

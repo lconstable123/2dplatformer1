@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 7575325261808958934}
   m_Layer: 11
   m_Name: Goober
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,7 +266,7 @@ Transform:
   - {fileID: 5682702690318259224}
   - {fileID: 5080036754380330240}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7937759630175619104
 SpriteRenderer:
