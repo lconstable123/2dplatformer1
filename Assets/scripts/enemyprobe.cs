@@ -24,7 +24,7 @@ EnemyMovement parentMovement;
 
    void OnTriggerEnter2D(){
     if (isBody){
-    //Debug.Log("body prober working");
+   // Debug.Log("body prober working");
      parentMovement.FlipEnemy();
     }
    }

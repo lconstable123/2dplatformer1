@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "TileVania.sln"
+    "dotnet.defaultSolution": "2dplatformer1.sln"
 }

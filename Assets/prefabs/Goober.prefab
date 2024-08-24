@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5080036754380330240}
   - component: {fileID: 5392192065673213613}
   - component: {fileID: 2551305829359311484}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bodyprobe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 5920781218595217829}
   - component: {fileID: 4487416603395857104}
   - component: {fileID: 1769612850344613439}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: feetprobe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,8 @@ GameObject:
   - component: {fileID: 7545151760059557458}
   - component: {fileID: 2264062939150237033}
   - component: {fileID: 6897077503761833200}
-  m_Layer: 0
+  - component: {fileID: 7575325261808958934}
+  m_Layer: 11
   m_Name: Goober
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +266,7 @@ Transform:
   - {fileID: 5682702690318259224}
   - {fileID: 5080036754380330240}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7937759630175619104
 SpriteRenderer:
@@ -380,3 +381,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: -1
+--- !u!70 &7575325261808958934
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3285810422383686950}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
