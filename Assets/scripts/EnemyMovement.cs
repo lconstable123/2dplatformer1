@@ -43,7 +43,7 @@ public class EnemyMovement : MonoBehaviour
     }
     public void Die(){
         //Debug.Log("enemy registered a hit");
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
    
     

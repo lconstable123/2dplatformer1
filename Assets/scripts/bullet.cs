@@ -32,6 +32,9 @@ public class bullet : MonoBehaviour
             //Debug.Log("bullet registered an enemy");
             enemy = other.gameObject.GetComponent<EnemyMovement>();
             enemy.Die();
+            Destroy(gameObject);
+        } else {
+            Destroy(gameObject);
         }
  }
 
