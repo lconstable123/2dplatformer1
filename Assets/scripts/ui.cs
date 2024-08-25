@@ -6,7 +6,7 @@ using TMPro;
 public class ui : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI score;
-    gamesession gamesession;
+    //gamesession gamesession;
 
   void Awake(){
         
@@ -20,11 +20,11 @@ public class ui : MonoBehaviour
 
     void Start()
     {
-       gamesession = FindObjectOfType<gamesession>();
-       updateScore();
+       //gamesession = FindObjectOfType<gamesession>();
+       //updateScore();
     }
-    public void updateScore()
+    public void updateScore(int inputscore)
     {
-        score.text=gamesession.getLives().ToString();
+        score.text=inputscore.ToString();
     }
 }

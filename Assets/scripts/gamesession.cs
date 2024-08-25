@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class gamesession : MonoBehaviour
 {
     [SerializeField] int playerLives = 3;
+    int initialLives;
     ui ui;
     // Start is called before the first frame update
     void Awake(){
@@ -15,21 +16,31 @@ public class gamesession : MonoBehaviour
         if(numGameSession > 1){
             Destroy(gameObject);
         }else{
+            Debug.Log("setting up persistents");
             DontDestroyOnLoad(gameObject);
             ui = FindObjectOfType<ui>();
+           ui.updateScore(playerLives);
+            initialLives = playerLives;
         }
     }
     public void ProcessPlayerDeath(){
         if (playerLives > 1){
             TakeLife();
         } else {
+            Debug.Log("resetting game session");
             ResetGameSession();
+            
         }
     }
 
     private void ResetGameSession()
     {
-        SceneManager.LoadScene(0);
+        
+        Debug.Log("Game Over");
+
+       //playerLives = 3;
+         // ui.updateScore();
+       SceneManager.LoadScene(0);
         Destroy(gameObject);
     }
 
@@ -38,9 +49,10 @@ public class gamesession : MonoBehaviour
         
     }
     void TakeLife(){
-        Debug.Log("life taken");
+       
         playerLives--;
-        ui.updateScore();
+        ui.updateScore(playerLives);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
 

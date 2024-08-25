@@ -15,6 +15,7 @@ public class PlayerMovment : MonoBehaviour
      [SerializeField] Vector2 deathkick = new Vector2(0f,30f);
      [SerializeField] GameObject bullet;
      [SerializeField] Transform gun;
+     [SerializeField] AudioClip pickupsound;
      gamesession gamesession;
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
@@ -22,6 +23,7 @@ public class PlayerMovment : MonoBehaviour
     Animator animator;
     CapsuleCollider2D myBodyCollider;
     BoxCollider2D myFootCollider;
+    AudioSource audioSource;
     
     
     public bool playerHasHorizontalSpeed = false;
@@ -40,6 +42,7 @@ public class PlayerMovment : MonoBehaviour
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFootCollider = GetComponent<BoxCollider2D>();
         gamesession = FindObjectOfType<gamesession>();
+        audioSource = GetComponent<AudioSource>();
        
     }
 
@@ -100,8 +103,19 @@ public class PlayerMovment : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll) {
     if (coll.gameObject.layer == LayerMask.NameToLayer("Enemy") && isAlive){
-        TakeDamage();
+        StartCoroutine(TakeDamage());
     }
+
+    if (coll.gameObject.CompareTag("coin"))
+        {
+        Debug.Log("collected");
+        AudioSource.PlayClipAtPoint(pickupsound, Camera.main.transform.position);
+        Destroy(coll.gameObject);
+    }
+
+
+
+
     }
     void OnJump(InputValue value){
         if (!isAlive){return;};
@@ -134,14 +148,19 @@ public class PlayerMovment : MonoBehaviour
             spriteRenderer.flipX = false;}
 }
 
-    void TakeDamage(){
+    IEnumerator TakeDamage(){
+        
     Debug.Log("OUCH!!");
+    audioSource.pitch=-4;
+    //audioSource.PlayOneShot(pickupsound);
+     // AudioSource.PlayClipAtPoint(pickupsound, Camera.main.transform.position);
     myRigidbody.velocity = new Vector2(0,0);
     myRigidbody.velocity = deathkick;
     isAlive = false;
     animator.SetTrigger("Dying");
+    yield return new WaitForSeconds(1f);
     gamesession.ProcessPlayerDeath();
-}
+    }
 }
 
 
