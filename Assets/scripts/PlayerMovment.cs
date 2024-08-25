@@ -15,6 +15,7 @@ public class PlayerMovment : MonoBehaviour
      [SerializeField] Vector2 deathkick = new Vector2(0f,30f);
      [SerializeField] GameObject bullet;
      [SerializeField] Transform gun;
+     gamesession gamesession;
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
     SpriteRenderer spriteRenderer;
@@ -38,6 +39,7 @@ public class PlayerMovment : MonoBehaviour
         animator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFootCollider = GetComponent<BoxCollider2D>();
+        gamesession = FindObjectOfType<gamesession>();
        
     }
 
@@ -62,7 +64,7 @@ public class PlayerMovment : MonoBehaviour
 
     void OnFire(InputValue value){
          if (!isAlive){return;};
-         Debug.Log("shoot");
+         //Debug.Log("shoot");
          Instantiate(bullet, gun.position, transform.rotation);
     }
 
@@ -134,12 +136,11 @@ public class PlayerMovment : MonoBehaviour
 
     void TakeDamage(){
     Debug.Log("OUCH!!");
-    //myRigidbody.bodyType = RigidbodyType2D.Kinematic;
-    //myBodyCollider.enabled = false;
     myRigidbody.velocity = new Vector2(0,0);
     myRigidbody.velocity = deathkick;
     isAlive = false;
     animator.SetTrigger("Dying");
+    gamesession.ProcessPlayerDeath();
 }
 }
 

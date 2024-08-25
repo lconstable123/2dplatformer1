@@ -385,8 +385,11 @@
 "Assets/scripts/bullet.cs"
 "Assets/scripts/EnemyMovement.cs"
 "Assets/scripts/enemyprobe.cs"
+"Assets/scripts/exit.cs"
+"Assets/scripts/gamesession.cs"
 "Assets/scripts/PlayerMovment.cs"
 "Assets/scripts/swds.cs"
+"Assets/scripts/ui.cs"
 -langversion:9.0
 
 /deterministic
